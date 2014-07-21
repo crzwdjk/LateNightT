@@ -1,0 +1,122 @@
+place-alfcl|Alewife|-71.142483|42.395428
+place-alsgr|Allston St.|-71.137955|42.348701
+place-andrw|Andrew Square|-71.057655|42.330154
+place-aport|Airport|-71.030395|42.374262
+place-aqucl|Aquarium|-71.051652|42.359784
+place-armnl|Arlington|-71.070893|42.351902
+place-asmnl|Ashmont|-71.064489|42.284652
+place-babck|Babcock St.|-71.12165|42.35182
+place-bbsta|Back Bay|-71.075727|42.34735
+place-bckhl|Back of the Hill|-71.111313|42.330139
+place-bcnfd|Beaconsfield|-71.140823|42.335846
+place-bcnwa|Washington Sq.|-71.13533|42.339394
+place-bland|Blandford St.|-71.100258|42.349293
+place-bmmnl|Beachmont|-70.99231944|42.39754234
+place-bndhl|Brandon Hall|-71.129082|42.340023
+place-bomnl|Bowdoin|-71.062037|42.361365
+place-boyls|Boylston|-71.06459|42.35302
+place-brdwy|Broadway|-71.056967|42.342622
+place-brico|Packards Corner|-71.125031|42.351967
+place-brkhl|Brookline Hills|-71.126999|42.331333
+place-brmnl|Brigham Circle|-71.104609|42.334229
+place-brntn|Braintree|-71.0011385|42.2078543
+place-bucen|Boston Univ. Central|-71.106865|42.350082
+place-buest|Boston Univ. East|-71.103889|42.349735
+place-butlr|Butler|-71.062584|42.272343
+place-buwst|Boston Univ. West|-71.113876|42.350941
+place-bvmnl|Brookline Village|-71.116296|42.332774
+place-capst|Capen St.|-71.087753|42.267712
+place-ccmnl|Community College|-71.069533|42.373622
+place-cedgr|Cedar Grove|-71.060432|42.279682
+place-cenav|Central Ave.|-71.073334|42.270027
+place-chhil|Chestnut Hill|-71.165314|42.326653
+place-chill|Chestnut Hill Ave.|-71.15316|42.338169
+place-chmnl|Charles MGH|-71.070628|42.361166
+place-chncl|Chinatown|-71.062752|42.352547
+place-chswk|Chiswick Rd.|-71.150711|42.340805
+place-clmnl|Cleveland Circle|-71.149326|42.336142
+place-cntsq|Central Square|-71.103802|42.365486
+place-coecl|Copley Square|-71.077447|42.349974
+place-cool|Coolidge Corner|-71.121201|42.342213
+place-crtst|Court House|-71.04685|42.35245
+place-davis|Davis Square|-71.121815|42.39674
+place-denrd|Dean Rd.|-71.141853|42.337807
+place-dwnxg|Downtown Crossing|-71.060225|42.355518
+place-eliot|Eliot|-71.216713|42.319023
+place-engav|Englewood Ave.|-71.14566|42.336971
+place-fbkst|Fairbanks St.|-71.131073|42.339725
+place-fenwd|Fenwood Rd.|-71.105728|42.333706
+place-fenwy|Fenway|-71.104187|42.345394
+place-fldcr|Fields Corner|-71.061667|42.300093
+place-forhl|Forest Hills|-71.113686|42.300523
+place-gover|Government Center|-71.059215|42.359705
+place-grigg|Griggs St.|-71.134949|42.348545
+place-grnst|Green Street|-71.107414|42.310525
+place-haecl|Haymarket|-71.05829|42.363021
+place-harsq|Harvard|-71.118956|42.373362
+place-harvd|Harvard Ave.|-71.131355|42.350243
+place-hsmnl|Heath St.|-71.110559|42.328681
+place-hwsst|Hawes St.|-71.111145|42.344906
+place-hymnl|Hynes|-71.087903|42.347888
+place-jaksn|Jackson Square|-71.099592|42.323132
+place-jfk|JFK/U Mass|-71.052391|42.320685
+place-kencl|Kenmore Square|-71.095169|42.348949
+place-knncl|Kendall Square|-71.08617653|42.36249079
+place-kntst|Kent St.|-71.114197|42.344074
+place-lake|Boston College|-71.166769|42.340081
+place-lech|Lechmere|-71.076536|42.370772
+place-lngmd|Longwood Medical Area|-71.100052|42.33596
+place-longw|Longwood|-71.110451|42.341145
+place-masta|Mass Ave|-71.083423|42.341512
+place-matt|Mattapan|-71.092241|42.267762
+place-mfa|Museum of Fine Arts|-71.095512|42.337711
+place-miltt|Milton|-71.067673|42.270306
+place-mispk|Mission Park|-71.109756|42.333195
+place-mlmnl|Malden Center |-71.07411|42.426632
+place-mvbcl|Maverick|-71.03952958|42.36911856
+place-newtn|Newton Highlands|-71.206116|42.321735
+place-newto|Newton Centre|-71.192429|42.329391
+place-north|North Station|-71.06129|42.365577
+place-nqncy|North Quincy|-71.029583|42.275275
+place-nuniv|Northeastern University|-71.088806|42.340401
+place-ogmnl|Oak Grove|-71.071097|42.43668
+place-orhte|Orient Heights|-71.004736|42.386867
+place-pktrm|Park Street|-71.0624242|42.35639457
+place-plsgr|Pleasant St.|-71.118889|42.351521
+place-portr|Porter Square|-71.119149|42.3884
+place-prmnl|Prudential|-71.081696|42.34557
+place-qamnl|Quincy Adams|-71.007153|42.233391
+place-qnctr|Quincy Center|-71.005409|42.251809
+place-rbmnl|Revere Beach|-70.99253321|42.40784254
+place-rcmnl|Roxbury Crossing|-71.095451|42.331397
+place-river|Riverside|-71.251742|42.337059
+place-rsmnl|Reservoir|-71.148952|42.335027
+place-rugg|Ruggles|-71.088961|42.336377
+place-rvrwy|Riverway|-71.111931|42.331684
+place-sbmnl|Stony Brook|-71.104248|42.317062
+place-sdmnl|Suffolk Downs|-70.99712259|42.39050067
+place-shmnl|Savin Hill|-71.053331|42.31129
+place-smary|Saint Mary St.|-71.107353|42.345974
+place-smmnl|Shawmut|-71.06573796|42.29312583
+place-sougr|South St.|-71.157661|42.3396
+place-spmnl|Science Park|-71.067666|42.366664
+place-sstat|South Station|-71.055242|42.352271
+place-state|State Street|-71.057598|42.358978
+place-sthld|Sutherland Rd.|-71.146202|42.341614
+place-stplb|Saint Paul St.|-71.116104|42.3512
+place-stpul|Saint Paul St.|-71.116997|42.343327
+place-sull|Sullivan Square|-71.076994|42.383975
+place-sumav|Summit Ave.|-71.12561|42.34111
+place-symcl|Symphony|-71.085056|42.342687
+place-tapst|Tappan St.|-71.138702|42.338459
+place-tumnl|Tufts Medical Center|-71.063917|42.349662
+place-valrd|Valley Rd.|-71.081566|42.268322
+place-waban|Waban|-71.230728|42.325943
+place-wascm|Washington St.|-71.142853|42.343864
+place-welln|Wellington |-71.077082|42.40237
+place-wimnl|Wood Island|-71.02286539|42.3796403
+place-wlsta|Wollaston|-71.0203369|42.2665139
+place-wondl|Wonderland|-70.991648|42.41342
+place-woodl|Woodland|-71.244301|42.333374
+place-wrnst|Warren St.|-71.140457|42.348343
+place-wtcst|World Trade Center|-71.04246|42.34863
