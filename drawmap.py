@@ -187,7 +187,7 @@ def draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships):
     return
 
 def draw_subway_stations(ctx, station_ridership, station_locations):
-    for ridership, station, line in station_ridership:
+    for (ridership, station, line) in station_ridership:
         if station not in station_locations:
             print(station, "not found")
             continue
@@ -217,9 +217,9 @@ def main():
         for quarter in [0, 1, 2, 3]:
             (ctx, surf) = init_canvas(800, 800, (0, 0, 0))
 
-            station_riderships = map(lambda x: (x[0], x[1], x[4]),
+            station_riderships = list(map(lambda x: (x[0], x[1], x[4]),
                                      filter(lambda r: r[2] == hour and r[3] == quarter,
-                                            station_ridership_after))
+                                            station_ridership_after)))
             draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships)
 
             route_riderships = map(lambda x: (x[0], x[1]),
