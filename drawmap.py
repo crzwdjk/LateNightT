@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import sqlite3
+import math, sqlite3
 from maputils import init_canvas, convert_point
 from mapdata import *
 
@@ -55,10 +55,10 @@ subwaycolors = {
         "color": (0.259, 0.482, 0.114),
         "routes": ('812_', '831_', '852_', '880_'), # green line
     },
-    #"Silver": {
-    #    "color": (0.333, 0.333, 0.333),
-    #    "routes": ('746'), # silver line Waterfront subway
-    #},
+    "Silver": {
+        "color": (0.333, 0.333, 0.333),
+        "routes": ('746', ), # silver line Waterfront subway
+    },
 }
 
 # transfer stations, and ridership distribution by line (based on 2014 Blue Book data)
@@ -69,11 +69,11 @@ transferstations = {
     "Government Center": {"Blue": 0.262, "Green": 0.738},
     "Haymarket": {"Green": 0.386, "Orange": 0.614},
     "North Station": {"Green": 0.366, "Orange": 0.634},
-    # "South Station": {"Red": 0.947, "Silver": 0.053},
+    "South Station": {"Red": 0.947, "Silver": 0.053},
 }
 
 def draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships):
-    line_riderships = {l: 0 for l in ["Red", "Green", "Blue", "Orange"]}
+    line_riderships = {l: 0 for l in subwaycolors.keys()}
     for ridership, station, line in station_riderships:
         if station in transferstations:
             for line in transferstations[station].keys():

@@ -38,7 +38,7 @@ place-clmnl|Cleveland Circle|-71.149326|42.336142
 place-cntsq|Central Square|-71.103802|42.365486
 place-coecl|Copley Square|-71.077447|42.349974
 place-cool|Coolidge Corner|-71.121201|42.342213
-place-crtst|Court House|-71.04685|42.35245
+place-crtst|Courthouse|-71.04685|42.35245
 place-davis|Davis Square|-71.121815|42.39674
 place-denrd|Dean Rd.|-71.141853|42.337807
 place-dwnxg|Downtown Crossing|-71.060225|42.355518
