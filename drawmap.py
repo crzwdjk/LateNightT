@@ -32,7 +32,11 @@ def ridership_by_route(db):
     print(days_before,  "days before start of late night service")
 
     c.execute("""select sum(transactions) / ? avgrides, routestation, trxhour, trx15min
-                 from ridership where line = 'Bus' and scheduledate > ?
+                 from ridership
+                 where (line = 'Bus'
+                        or (line = 'Silver' and routestation in
+                            ('SL4 Essex', 'SL5 Washington St')))
+                 and scheduledate > ?
                  group by routestation, trxhour, trx15min""",
                  (days_after, start_of_latenight))
     ridership_after = c.fetchall()
@@ -109,8 +113,6 @@ def normalize_color(value):
 def normalize_station_color(number):
     if number >= 180:
         return (0.9, 0.9, 0.9)
-    elif number <= 36:
-        return (0.2, 0.2, 0.2)
     else:
         return tuple(number / 180 * i for i in (0.9,)*3)
 
@@ -143,15 +145,18 @@ subwaycolors = {
         "color": (0.910, 0.447, 0.0),
         "routes": ('903_',),
     },
-    #(0.882, 0.176, 0.153): ('931_', '933_'), # red line
     "Red": {
-        "color": (0.882, 0.1, 0.1), # should be: 0.882, 0.176, 0.153?
+        "color": (0.882, 0.176, 0.153),
         "routes": ('931_', '933_'),
     },
     "Green": {
         "color": (0.259, 0.482, 0.114),
         "routes": ('812_', '831_', '852_', '880_'), # green line
     },
+    #"Silver": {
+    #    "color": (0.333, 0.333, 0.333),
+    #    "routes": ('746'), # silver line Waterfront subway
+    #},
 }
 
 # transfer stations, and ridership distribution by line (based on 2014 Blue Book data)
@@ -162,7 +167,7 @@ transferstations = {
     "Government Center": {"Blue": 0.262, "Green": 0.738},
     "Haymarket": {"Green": 0.386, "Orange": 0.614},
     "North Station": {"Green": 0.366, "Orange": 0.634},
-    # South Station: Red 0.947, Silver 0.053
+    # "South Station": {"Red": 0.947, "Silver": 0.053},
 }
 
 def draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships):
@@ -193,7 +198,6 @@ def draw_subway_stations(ctx, station_ridership, station_locations):
             continue
         location = station_locations[station]
         (x, y) = convert_point(bounds, location)
-        print(x, y, location)
         station_color = normalize_station_color(ridership)
         ctx.set_source_rgb(*station_color)
         ctx.arc(x, y, 0.003, 0, 2*3.1415926535)
