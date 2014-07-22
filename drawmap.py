@@ -3,20 +3,6 @@ import sqlite3
 import csv
 from maputils import init_canvas, convert_point
 
-def convert_line(header, line):
-    values = line.strip().split(",")
-    ret = {}
-    # date, latenightservice, line, station, dayofweek, hour,
-    for (i, key) in enumerate(header):
-        ret[key] = values[i]
-    return ret
-
-def parse_file():
-    f = open('LateNight_thru_7June2014.csv')
-    header = tuple(f.readline().strip().split(","))
-    items = [ convert_line(header, line) for line in f ]
-    return items
-
 start_of_latenight = '2014-03-25'
 
 def ridership_by_route(db):
@@ -46,8 +32,6 @@ def ridership_by_route(db):
                  group by routestation, trxhour, trx15min""",
                  (days_before, start_of_latenight))
     ridership_before = c.fetchall()
-
-    # XXX: group_tuples
 
     return (ridership_before, ridership_after)
 
