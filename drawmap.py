@@ -157,7 +157,7 @@ def main():
     # normalization value: 60 txs per quarter hour
     for hour in [22, 23, 24, 25, 26, 27]:
         for quarter in [0, 1, 2, 3]:
-            (ctx, surf) = init_canvas(800, 800, (0, 0, 0))
+            (ctx, surf) = init_canvas(1000, 1000, (0, 0, 0))
 
             station_riderships = list(map(lambda x: (x[0], x[1], x[4]),
                                      filter(lambda r: r[2] == hour and r[3] == quarter,
