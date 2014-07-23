@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import math, sqlite3
+import math, sqlite3, sys
 import clock
 from maputils import init_canvas, convert_point
 from mapdata import *
@@ -165,6 +165,8 @@ def main():
     db = sqlite3.connect('latenight.db')
     c = db.cursor()
 
+    size = int(sys.argv[1]) if len(sys.argv) > 1 else 800
+
     (ridership_before, ridership_after) = ridership_by_route(db)
     station_ridership_after = ridership_by_station(db)
 
@@ -177,7 +179,7 @@ def main():
     for hour in [22, 23, 24, 25, 26, 27]:
         for quarter in [0, 1, 2, 3]:
             print(hour, quarter)
-            (ctx, surf) = init_canvas(1000, 1000, (0, 0, 0))
+            (ctx, surf) = init_canvas(size, size, (0, 0, 0))
 
             station_riderships = list(map(lambda x: (x[0], x[1], x[4]),
                                      filter(lambda r: r[2] == hour and r[3] == quarter,
