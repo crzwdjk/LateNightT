@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import math, sqlite3
+import clock
 from maputils import init_canvas, convert_point
 from mapdata import *
 
@@ -104,43 +105,6 @@ def draw_subway_stations(ctx, station_ridership, station_locations):
         ctx.arc(x, y, 0.003, 0, 2*math.pi)
         ctx.fill()
 
-r3_2 = 0.5 * math.sqrt(3)
-clock_hour_angle = [
-    (0, 1),
-    (0.5, r3_2),
-    (r3_2, 0.5),
-    (1, 0),
-    (r3_2, -0.5),
-    (0.5, -r3_2),
-    (0, -1),
-    (-0.5, -r3_2),
-    (-r3_2, -0.5),
-    (-1, 0),
-    (-r3_2, 0.5),
-    (-0.5, r3_2)
-]
-
-def draw_clock(ctx, x, y, hour, quarter):
-    radius = 0.05
-    (hdx, hdy) = (c * radius * 0.6 for c in clock_hour_angle[hour % 12])
-    (mdx, mdy) = (c * radius * 0.8 for c in clock_hour_angle[quarter * 3])
-
-    ctx.set_line_width(0.001)
-    ctx.set_source_rgb(1, 1, 1)
-
-    ctx.arc(x, y, radius, 0, 2*math.pi)
-    ctx.stroke()
-
-    ctx.set_line_width(0.002)
-    ctx.move_to(x, y)
-    ctx.line_to(x + hdx, y + hdy)
-    ctx.stroke()
-
-    ctx.set_line_width(0.001)
-    ctx.move_to(x, y)
-    ctx.line_to(x + mdx, y + mdy)
-    ctx.stroke()
-
 
 def main():
     db = sqlite3.connect('latenight.db')
@@ -179,7 +143,7 @@ def main():
 
             draw_subway_stations(ctx, station_riderships, station_locations)
 
-            draw_clock(ctx, 0.06, 0.94, hour, quarter)
+            clock.draw_clock(ctx, 0.06, 0.94, 0.05, hour, quarter)
 
             filename = "ridership-%d%d.png" % (hour, quarter)
             surf.write_to_png(filename)
