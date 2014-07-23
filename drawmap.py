@@ -96,7 +96,6 @@ def draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships):
 def draw_subway_stations(ctx, station_ridership, station_locations):
     for (ridership, station, line) in station_ridership:
         if station not in station_locations:
-            print(station, "not found")
             continue
         location = station_locations[station]
         (x, y) = convert_point(bounds, location)

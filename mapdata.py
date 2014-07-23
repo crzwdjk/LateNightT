@@ -50,9 +50,10 @@ def ridership_by_station(db):
     c.execute("""select sum(transactions) / ? avgrides, routestation, trxhour, trx15min, line
                  from ridership
                  where scheduledate >= ?
-                 and (line in ('Red', 'Orange', 'Blue')
-                      or line = 'Green' and routestation not like 'Green Line%'
-                      or line = 'Silver' and routestation in ('Courthouse', 'World Trade Center'))
+                 and (line in ('Red', 'Orange', 'Blue', 'Green')
+                      or line = 'Silver'
+                         and (routestation in ('Courthouse', 'World Trade Center')
+                              or routestation like '%Waterfront%'))
                  group by routestation, trxhour, trx15min, line""",
         (days_after, start_of_latenight))
     return c.fetchall()
