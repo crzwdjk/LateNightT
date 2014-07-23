@@ -71,7 +71,6 @@ def init_shape_route_map():
 # of (sequence, lat, lon) tuples for that shape.
 def init_shapes():
     r = csv.reader(open('shapes.txt'))
-    head = next(r)
     shapes = {}
     for line in r:
         shape_id, lat, lon, sequence = line[0], float(line[1]), float(line[2]), int(line[3])
