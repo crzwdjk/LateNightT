@@ -73,6 +73,13 @@ transferstations = {
     "South Station": {"Red": 0.947, "Silver": 0.053},
 }
 
+# hack to filter Green Line shapes to only include the subway portion
+def green_line_hack(shape):
+    def in_subway(lat, lon):
+        # east Kenmore and north of Symphony is subway.
+        return (lon > -71.096) and (lat > 42.34)
+    return list(filter(lambda t: in_subway(t[1], t[2]), shape))
+
 def draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships):
     line_riderships = {l: 0 for l in subwaycolors.keys()}
     for ridership, station, line in station_riderships:
@@ -83,7 +90,6 @@ def draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships):
         else:
             line_riderships[line] += ridership
 
-    print(line_riderships)
     for line, data in subwaycolors.items():
         shapeids = []
         weight = max(min(800, line_riderships[line]) / 800, 0.1)
@@ -91,8 +97,57 @@ def draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships):
         for route in data["routes"]:
             shapeids.extend(shapes_for_route[route])
         for shapeid in shapeids:
-            drawshape(ctx, shapes[shapeid], color, 0.004, cairo.OPERATOR_OVER)
+            if line == 'Green':
+                shape = green_line_hack(shapes[shapeid])
+            else:
+                shape = shapes[shapeid]
+            drawshape(ctx, shape, color, 0.004, cairo.OPERATOR_SOURCE)
     return
+
+subwaysurface = {
+    "Mattapan Line": {
+        "color": (0.882, 0.176, 0.153),
+        "route": '899_',
+    },
+    "Green Line B": {
+        "color": (0.259, 0.482, 0.114),
+        "route": '812_',
+    },
+    "Green Line C": {
+        "color": (0.259, 0.482, 0.114),
+        "route": '831_',
+    },
+    "Green Line D": {
+        "color": (0.259, 0.482, 0.114),
+        "route": '852_',
+    },
+    "Green Line E": {
+        "color": (0.259, 0.482, 0.114),
+        "route": '880_',
+    },
+    "SL1 (Waterfront)": {
+        "color": (0.333, 0.333, 0.333),
+        "route": '741',
+    },
+    "SL2 (Waterfront)": {
+        "color": (0.333, 0.333, 0.333),
+        "route": '742',
+    },
+}
+
+def draw_subway_surface(ctx, shapes_for_route, shapes, station_riderships):
+    for line in subwaysurface.keys():
+        ridership = 0
+        for r, l, _ in station_riderships:
+            if l == line:
+                ridership = r
+                break
+        weight = min(max(ridership / 60, 0.06), 1.0)
+        color = tuple(weight * i for i in subwaysurface[line]["color"])
+        ctx.set_source_rgb(*color)
+        shapeids = shapes_for_route[subwaysurface[line]["route"]]
+        for shapeid in shapeids:
+            drawshape(ctx, shapes[shapeid], color, 0.002, cairo.OPERATOR_OVER)
 
 def draw_subway_stations(ctx, station_ridership, station_locations):
     for (ridership, station, line) in station_ridership:
@@ -121,11 +176,14 @@ def main():
     # normalization value: 60 txs per quarter hour
     for hour in [22, 23, 24, 25, 26, 27]:
         for quarter in [0, 1, 2, 3]:
+            print(hour, quarter)
             (ctx, surf) = init_canvas(1000, 1000, (0, 0, 0))
 
             station_riderships = list(map(lambda x: (x[0], x[1], x[4]),
                                      filter(lambda r: r[2] == hour and r[3] == quarter,
                                             station_ridership_after)))
+            draw_subway_surface(ctx, shapes_for_route, shapes, station_riderships)
+
             draw_subway_lines(ctx, shapes_for_route, shapes, station_riderships)
 
             route_riderships = map(lambda x: (x[0], x[1]),
